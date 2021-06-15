@@ -20,7 +20,6 @@ public class BallClock {
 	private static int ballsNum = 0;
 	private static long startTime =0L;
 	private static long endTime = 0L;
-	private static long startTime =0L;
 	
 	/***
 	 * 
