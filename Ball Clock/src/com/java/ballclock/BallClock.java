@@ -22,6 +22,7 @@ public class BallClock {
 	private static int cycleCount=0;
 	private static int ballsNum = 0;
 	private static long endTime = 0L;
+	private static long startTime =0L;
 	
 	public static long getEndTime() {
 		return endTime;
@@ -30,9 +31,6 @@ public class BallClock {
 	public static long getStartTime() {
 		return startTime;
 	}
-
-	private static long startTime =0L;
-
 
 	public static int getBallsNum() {
 		return ballsNum;
