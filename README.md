@@ -26,7 +26,7 @@ com.java.ballclocktest containts a class named BallClockTest used for a test pur
 
 ## How To Run The Program
 The number of balls is read from the file "input" located in the src folder.<br/>
-Running the class BallClock in file BallClock.java will read the number of balls from the file "input"
+Running the class BallClock in file BallClock.java will read the number of balls from the file "input".
 
 
 
