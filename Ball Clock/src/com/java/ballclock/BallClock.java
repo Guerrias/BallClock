@@ -22,36 +22,61 @@ public class BallClock {
 	private static final int numberHoursPerDay = 24;
 	private static int cycleCount=0;
 	private static int ballsNum = 0;
+	private static long startTime =0L;
 	private static long endTime = 0L;
 	
+	/***
+	 * 
+	 * @return endTime in millisecond
+	 */
 	public static long getEndTime() {
 		return endTime;
 	}
 
+	/***
+	 * 
+	 * @return startTime in millisecond
+	 */
 	public static long getStartTime() {
 		return startTime;
 	}
 
-	private static long startTime =0L;
-
-
+	/***
+	 * 
+	 * @return ballsNum, number of balls to be used
+	 */
 	public static int getBallsNum() {
 		return ballsNum;
 	}
 
+	/***
+	 * 
+	 * @return cycleCount, the total cycle
+	 */
 	public static int getCycleCount() {
 		return cycleCount;
 	}
 
+	/***
+	 * 
+	 * @return numberHoursPerCycle
+	 */
 	public static int getNumberHoursPerCycle() {
 		return numberHoursPerCycle;
 	}
 
-
+	/***
+	 * 
+	 * @return numberHoursPerDay
+	 */
 	public static int getNumberHoursPerDay() {
 		return numberHoursPerDay;
 	}
 
+	/***
+	 * 
+	 * @param args, read from the file "input"
+	 */
 	public static void main(String[] args) {
 		
 		startTime = System.currentTimeMillis();
@@ -139,25 +164,47 @@ public class BallClock {
 			
 	}
 	
-	
+	/***
+	 * 
+	 * @param queue
+	 * @param minuteStack
+	 */
 	public static void minuteStackToQueue(LinkedList<Ball> queue,Stack<Ball> minuteStack){
 		for(int i=0;i<4;i++){
 			queue.add(minuteStack.pop());
 		}
 	}
 	
+	
+	/***
+	 * 
+	 * @param queue
+	 * @param fiveminuteStack
+	 */
 	public static void fiveminuteStackToQueue(LinkedList<Ball> queue,Stack<Ball> fiveminuteStack){
 		for(int i=0;i<11;i++){
 			queue.add(fiveminuteStack.pop());
 		}
 	}
 	
+	/***
+	 * 
+	 * @param queue
+	 * @param hourStack
+	 */
 	public static  void hourStackToQueue(LinkedList<Ball> queue,Stack<Ball> hourStack){
 		for(int i=0;i<11;i++){
 			queue.add(hourStack.pop());
 		}
 	}
 	
+	/***
+	 * 
+	 * @param queue
+	 * @param ballsNum
+	 * @return true if the current queue is the same as the original one, 
+	 * false otherwise 
+	 */
 	public static boolean isEqualToOriginal(LinkedList<Ball> queue, int ballsNum){
 		for(int i=0;i<ballsNum;i++){
 			if(queue.get(i).getNumber() != (i+1)){
