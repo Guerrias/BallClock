@@ -18,16 +18,17 @@ Have the user enter in a valid number between 27 - 127 that represents the total
 Display the ball count, the number of days, and the duration of computation in reaching your answer.
 
 ## Sample Balls and the correct Day count
-30 balls take 15 days
-45 balls take 378 days
+30 balls take 15 days for a computation time of 36 ms<br\>
+45 balls take 378 days for a computation time of 100 ms
+
+# Components
+There are two packages in this program: 
+com.java.ballclock contains the main classes of the program: Ball and BallClock.<br/>
+com.java.ballclocktest containts a class named BallClockTest used for a test purpose.<br/>
 
 ## How To Run The Program
-There are two packages in this program: com.java.ballclock and com.java.ballclocktest.
-
-The first one contains the main classes of the program: Ball and BallClock.<br/>
-The second one containts a class named BallClockTest used for a test purpose.<br/>
-
 The number of balls is read from the file "input" located in the src folder.
+Running the class BallClock in file BallClock.java will read the number of balls from the file "input"
 
 
 
