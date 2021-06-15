@@ -6,6 +6,7 @@ package com.java.ballclock;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Paths;
+import java.util.InputMismatchException;
 
 /**
  * @author Toussida F T Minoungou
@@ -73,63 +74,69 @@ public class BallClock {
 			
 			scan.close();
 			
+			//int cycleCount=0;
+			Ball temp=null;
+
+			// initializing the queue with all the balls
+			for(int i=1;i<=ballsNum;i++){ 
+				queue.add(new Ball(i));
+			}
 			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			System.out.println("File Not Found Exception");
-			e.printStackTrace();
-		}
-
-		//int cycleCount=0;
-		Ball temp=null;
-
-		// initializing the queue with all the balls
-		for(int i=1;i<=ballsNum;i++){ 
-			queue.add(new Ball(i));
-		}
-		
-		
-		do{
-			while(hourStack.size()<=11){ // hours' stack loop
-				
-				while(fiveminuteStack.size()<=11){ // five-minutes' stack loop
+			
+			do{
+				while(hourStack.size()<=11){ // hours' stack loop
 					
-					while(minuteStack.size()<=4){	// minutes' stack loop
+					while(fiveminuteStack.size()<=11){ // five-minutes' stack loop
 						
-						 temp=queue.remove(); // removes and returns the first element of the queue
-						 
-						 if(minuteStack.size()==4){ //minute stack length is equal to 4, return to the five-minute loop	
+						while(minuteStack.size()<=4){	// minutes' stack loop
+							
+							 temp=queue.remove(); // removes and returns the first element of the queue
+							 
+							 if(minuteStack.size()==4){ //minute stack length is equal to 4, return to the five-minute loop	
+								break;
+							 }else {
+								minuteStack.push(temp); //Less than 4 balls into the stack
+							 }
+						}	
+						minuteStackToQueue(queue, minuteStack); //Put the minute stack balls back to the queue
+						if(fiveminuteStack.size()==11){ //five-minute stack length is equal to 11, return to the five-minute loop
 							break;
-						 }else {
-							minuteStack.push(temp); //Less than 4 balls into the stack
-						 }
-					}	
-					minuteStackToQueue(queue, minuteStack); //Put the minute stack balls back to the queue
-					if(fiveminuteStack.size()==11){ //five-minute stack length is equal to 11, return to the five-minute loop
-						break;
-					}else {
-						fiveminuteStack.push(temp); //Less than 11 balls into the five-minute stack
+						}else {
+							fiveminuteStack.push(temp); //Less than 11 balls into the five-minute stack
+						}
+					}
+					
+					fiveminuteStackToQueue(queue, fiveminuteStack); //Put the minute stack balls back to the queue
+				
+					if(hourStack.size()==11){ //hour stack length is equal to 11, return to the five-minute loop
+						//System.out.println("Hour break");
+						break;	
+					}else 	{
+						hourStack.push(temp); //Less than 11 balls into the hour stack
 					}
 				}
 				
-				fiveminuteStackToQueue(queue, fiveminuteStack); //Put the minute stack balls back to the queue
+				hourStackToQueue(queue, hourStack); //Put the hour stack balls back to the queue
+				queue.add(temp);
+				cycleCount++;
+				
+			}while(!isEqualToOriginal(queue, ballsNum));
 			
-				if(hourStack.size()==11){ //hour stack length is equal to 11, return to the five-minute loop
-					//System.out.println("Hour break");
-					break;	
-				}else 	{
-					hourStack.push(temp); //Less than 11 balls into the hour stack
-				}
-			}
+			endTime = System.currentTimeMillis();
+			System.out.print( ballsNum +" balls take "+(cycleCount*numberHoursPerCycle/numberHoursPerDay)+" days"+" for a computation time of "+(endTime - startTime)+" ms");
 			
-			hourStackToQueue(queue, hourStack); //Put the hour stack balls back to the queue
-			queue.add(temp);
-			cycleCount++;
 			
-		}while(!isEqualToOriginal(queue, ballsNum));
-		
-		endTime = System.currentTimeMillis();
-		System.out.print( ballsNum +" balls take "+(cycleCount*numberHoursPerCycle/numberHoursPerDay)+" days"+" for a computation time of "+(endTime - startTime)+" ms");	
+		} catch (FileNotFoundException e) {
+
+			System.out.println("File Not Found");
+			//e.printStackTrace();
+			
+		}catch(InputMismatchException e) {
+			System.out.println("Input Mismatch Exception: the input should be of the type int");
+			//e.printStackTrace();
+		}
+
+			
 	}
 	
 	
