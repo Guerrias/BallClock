@@ -1,28 +1,23 @@
-/**
- * 
- */
 package com.java.ballclock;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 import java.util.InputMismatchException;
+import java.util.LinkedList;
+import java.util.Scanner;
+import java.util.Stack;
 
 /**
  * @author Toussida F T Minoungou
  *
  */
-
-import java.util.LinkedList;
-import java.util.Scanner;
-import java.util.Stack;
  
 public class BallClock {
 	private static final int numberHoursPerCycle = 12;
 	private static final int numberHoursPerDay = 24;
 	private static int cycleCount=0;
 	private static int ballsNum = 0;
-	private static long startTime =0L;
 	private static long endTime = 0L;
 	private static long startTime =0L;
 	
