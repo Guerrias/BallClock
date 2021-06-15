@@ -12,14 +12,14 @@ import java.util.Stack;
  * @author Toussida F T Minoungou
  *
  */
- 
+
 public class BallClock {
 	private static final int numberHoursPerCycle = 12;
 	private static final int numberHoursPerDay = 24;
 	private static int cycleCount=0;
 	private static int ballsNum = 0;
+  private static long startTime = 0L;
 	private static long endTime = 0L;
-	private static long startTime =0L;
 	
 	/***
 	 * 
