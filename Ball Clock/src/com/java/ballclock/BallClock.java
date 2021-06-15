@@ -41,8 +41,6 @@ public class BallClock {
 	 * 
 	 * @return ballsNum, number of balls to be used
 	 */
-
-
 	public static int getBallsNum() {
 		return ballsNum;
 	}
