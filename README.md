@@ -24,8 +24,8 @@ Display the ball count, the number of days, and the duration of computation in r
 ## How To Run The Program
 There are two packages in this program: com.java.ballclock and com.java.ballclocktest.
 
-The first one contains the main classes of the program: Ball and BallClock.
-The second one containts a class named BallClockTest used for a test purpose.
+The first one contains the main classes of the program: Ball and BallClock.<br/>
+The second one containts a class named BallClockTest used for a test purpose.<br/>
 
 The number of balls is read from the file "input" located in the src folder.
 
